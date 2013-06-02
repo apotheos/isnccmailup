@@ -1,0 +1,14 @@
+{
+    "email": {
+        "host": "imap.noctrl.edu",
+        "port": 389,
+        "user": "kindling",
+        "password": "ncckindling"
+    },
+    "database": {
+        "host": "localhost",
+        "user": "isnccmailup",
+        "passwd": "isnccmailup",
+        "db": "isnccmailup"
+    }
+}

@@ -1,9 +1,9 @@
-import json
-
 __author__ = 'mjholler'
 
 
 import imaplib
+import json
+from database import Database
 
 config = json.load(open('config.json', 'r+'))['email']
 
@@ -19,10 +19,7 @@ def isup():
     return True
 
 
-def log_status(status):
-    pass
-
-
 if __name__ == '__main__':
-    log_status(isup())
+    db = Database()
+    db.insert_mail_status(isup())
 

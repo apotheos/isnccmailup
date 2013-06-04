@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Is NCC Mail Up?</title>
+</head>
+    <body>
+        <div id="container">
+            <div id="status">
+                <h1>
+                    {% if isup %}
+                    <em>Yes.</em> NCC email is working fine.
+                    {% else %}
+                    <em>NCC Mail</em> appears to be down for us, too :(
+                    {% endif %}
+                </h1>
+            </div>
+            <div id="uptime">
+                <p>NCC email has been up (working) {{ uptime }}% of the time in the past 30 days.</p>
+            </div>
+        </div>
+        <footer>
+            <p>This website was created by Michael Holler, inspired by a Python script written by Jeff Petrick.</p>
+        </footer>
+    </body>
+</html>

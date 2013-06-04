@@ -1,9 +1,9 @@
 {
     "email": {
-        "host": "imap.noctrl.edu",
+        "host": "imap.your-domain.edu",
         "port": 389,
-        "user": "kindling",
-        "password": "ncckindling"
+        "user": "emailuser",
+        "password": "p@ssw0rd"
     },
     "database": {
         "host": "localhost",

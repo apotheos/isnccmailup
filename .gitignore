@@ -1,4 +1,4 @@
 *.iml
 *.pyc
 .idea/
-./config.json
+config.json

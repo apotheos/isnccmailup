@@ -1,4 +1,8 @@
 {
+    "application": {
+        "port": 5000
+        "debug": false
+    },
     "email": {
         "host": "imap.your-domain.edu",
         "port": 389,

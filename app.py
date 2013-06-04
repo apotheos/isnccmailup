@@ -1,3 +1,5 @@
+import json
+
 __author__ = 'mjholler'
 
 from flask import Flask, render_template
@@ -13,4 +15,5 @@ def index():
     return render_template('index.html', isup=nccmail.isup(), uptime=db.get_mail_uptime())
 
 if __name__ == "__main__":
-    app.run()
+    config = json.load(open('config.json', 'r+'))['application']
+    app.run(port=config['port'], debug=config['debug'])

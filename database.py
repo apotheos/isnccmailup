@@ -10,7 +10,7 @@ config = json.load(open('config.json', 'r+'))['database']
 class Database(object):
     def __init__(self):
         self.db = pymysql.connect(**config)
-	self.db.autocommit(True)
+        self.db.autocommit(True)
 
     def insert_mail_status(self, status):
         c = self.db.cursor()

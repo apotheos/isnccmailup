@@ -48,4 +48,4 @@ class Database(object):
         c = self.db.cursor()
         c.execute(query.format(status_table, 0, days))
         down = c.fetchone()[0]
-        return (up / float((up + down))) * 100
+        return round(((up / float((up + down))) * 100), 2)

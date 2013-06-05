@@ -1,7 +1,12 @@
 {
     "application": {
-        "port": 5000
-        "debug": false
+        "port": 5000,
+        "debug": false,
+        "levels": {
+            "good": 99.9,
+            "warning": 97.5,
+            "bad": 0
+        }
     },
     "email": {
         "host": "imap.your-domain.edu",

@@ -1,10 +1,9 @@
-import json
-
 __author__ = 'mjholler'
 
 import pymysql
+from app import config
 
-config = json.load(open('config.json', 'r+'))['database']
+db_config = config['database']
 
 
 class Database(object):
@@ -12,7 +11,7 @@ class Database(object):
     __TABLE_MAIN_SITE_STATUS = 'main_site_status'
 
     def __init__(self):
-        self.db = pymysql.connect(**config)
+        self.db = pymysql.connect(**db_config)
         self.db.autocommit(True)
 
     def insert_mail_status(self, status):

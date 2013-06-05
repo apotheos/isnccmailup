@@ -1,15 +1,17 @@
-import json
-
 __author__ = 'mjholler'
+
+import os
+basedir = os.path.dirname(os.path.realpath(__file__))
+
+import json
+config = json.load(open(os.path.join(basedir, 'config.json'), 'r+'))
 
 from flask import Flask, render_template
 app = Flask(__name__)
 
-import uptime
 import helper
 from database import Database
 
-config = json.load(open('config.json', 'r+'))
 
 
 @app.route("/")

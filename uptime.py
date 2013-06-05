@@ -3,12 +3,12 @@ __author__ = 'mjholler'
 
 import requests
 import imaplib
-import json
+from app import config
 from database import Database
 
 
 def is_mail_up():
-    email_config = json.load(open('config.json', 'r+'))['email']
+    email_config = config['email']
 
     try:
         mail = imaplib.IMAP4_SSL(email_config['host'])
@@ -20,15 +20,12 @@ def is_mail_up():
 
 
 def is_main_site_up():
-    site_config = json.load(open('config.json', 'r+'))['site']
-    r = requests.get(site_config['url'])
+    r = requests.get(config['site']['url'])
     return r.ok
 
 
 if __name__ == '__main__':
     db = Database()
     db.insert_mail_status(is_mail_up())
-    print 'inserted mail status'
     db.insert_main_site_status(is_main_site_up())
-    print 'inserted main site status'
 

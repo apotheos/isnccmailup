@@ -4,16 +4,20 @@
         "debug": false,
         "levels": [99.9, 97.5]
     },
-    "email": {
-        "host": "imap.your-domain.edu",
-        "port": 389,
-        "user": "emailuser",
-        "password": "p@ssw0rd"
-    },
     "database": {
         "host": "localhost",
         "user": "isnccmailup",
         "passwd": "isnccmailup",
         "db": "isnccmailup"
+    },
+    "email": {
+        "host": "imap.your-domain.edu",
+        "port": 389,
+        "user": "emailuser",
+        "password": "p@ssw0rd",
+        "webmail_url": "https://mail.your-domain.edu"
+    },
+    "site": {
+        "url": "http://northcentralcollege.edu"
     }
 }

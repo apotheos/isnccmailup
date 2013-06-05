@@ -4,22 +4,34 @@
     <title>Is NCC Mail Up?</title>
 </head>
     <body>
-        <div id="container">
-            <div id="status">
-                <h1>
-                    {% if isup %}
-                    <em>Yes.</em> NCC email is working fine.
+        <section>
+            <div id="mail">
+                <div id="status">
+                    <h1>
+                        {% if is_mail_up %}
+                        <em>Yes.</em> NCC email is working fine.
+                        {% else %}
+                        <em>NCC Mail</em> appears to be down for us, too :(
+                        {% endif %}
+                    </h1>
+                </div>
+                <div id="uptime">
+                    <p>NCC email has been up (working) {{ mail_uptime }}% of the time in the past 30 days.</p>
+                </div>
+            </div>
+            <div id="site">
+                <p>
+                    {% if is_main_site_up %}
+                    For comparison, NCC's main site (http://northcentralcollege.edu) is currently accessible and has an uptime of {{ main_site_uptime }}% during the same time period.
                     {% else %}
-                    <em>NCC Mail</em> appears to be down for us, too :(
+                    For comparison, NCC's main site (http://northcentralcollege.edu) is currently inaccessible and has an uptime of {{ main_site_uptime }}% during the same time period.
                     {% endif %}
-                </h1>
+                </p>
+
             </div>
-            <div id="uptime">
-                <p>NCC email has been up (working) {{ uptime }}% of the time in the past 30 days.</p>
-            </div>
-        </div>
+        </section>
         <footer>
-            <p>This website was created by Michael Holler, inspired by a Python script written by Jeff Petrick.</p>
+            <p>This website was created by Michael Holler, inspired by a Python script written by Jeff Petrick, and styled by Deepayan Bose.</p>
         </footer>
     </body>
 </html>

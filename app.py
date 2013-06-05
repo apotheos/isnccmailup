@@ -23,10 +23,8 @@ def index():
     db = Database()
     kwargs = dict()
     kwargs['mail_up'], kwargs['sample_time'] = db.get_last_sample()
-    # print type(kwargs['sample_time'])
     kwargs['sample_time'] = datetime.fromtimestamp(time.mktime(kwargs['sample_time'].timetuple()), tz=to_zone)
-    # print kwargs['sample_time']
-    kwargs['sample_time'] = kwargs['sample_time'].strftime('%B %d, %Y at %I:%M %p')
+    kwargs['sample_time'] = kwargs['sample_time'].strftime('%B %d, %Y at %I:%M %p %Z')
     kwargs['webmail_url'] = config['email']['webmail_url']
     kwargs['mail_uptime'] = db.get_mail_uptime()
     kwargs['mail_level'] = helper.get_level(kwargs['mail_uptime'])

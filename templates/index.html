@@ -4,34 +4,50 @@
     <title>Is NCC Mail Up?</title>
 </head>
     <body>
-        <section>
-            <div id="mail">
-                <div id="status">
-                    <h1>
-                        {% if is_mail_up %}
-                        <em>Yes.</em> NCC email is working fine.
-                        {% else %}
-                        <em>NCC Mail</em> appears to be down for us, too :(
-                        {% endif %}
-                    </h1>
+        <header>
+            <h1>Is NCC Mail Up?</h1>
+        </header>
+        <section id="mail-status">
+            {% if mail_up %}
+                <em>Yes.</em> We're able to connect to NCC Mail just fine.
+            {% else %}
+                <em>No.</em> NCC Mail looks down from here... :(
+            {% endif %}
+            <footer class="last-updated">
+                Last checked: {{ sample_time }}
+            </footer>
+        </section>
+        <section id="versus">
+            <div id="versus-left mail uptime-warning">
+                <header>
+                    <h2><a href="{{ webmail_url }}">NCC Mail</a></h2>
+                </header>
+                <div class="percentage">
+                    {{ mail_uptime }}% *
                 </div>
-                <div id="uptime">
-                    <p>NCC email has been up (working) {{ mail_uptime }}% of the time in the past 30 days.</p>
-                </div>
+                <footer>
+                    uptime
+                </footer>
             </div>
-            <div id="site">
-                <p>
-                    {% if is_main_site_up %}
-                    For comparison, NCC's main site (http://northcentralcollege.edu) is currently accessible and has an uptime of {{ main_site_uptime }}% during the same time period.
-                    {% else %}
-                    For comparison, NCC's main site (http://northcentralcollege.edu) is currently inaccessible and has an uptime of {{ main_site_uptime }}% during the same time period.
-                    {% endif %}
-                </p>
-
+            <div id="versus-center">
+                <h2>vs.</h2>
+            </div>
+            <div id="versus-right site uptime-good">
+                <header>
+                    <h2><a href="{{ site_url }}">NCC Homepage</a></h2>
+                </header>
+                <div class="percentage">
+                    {{ site_uptime }}% *
+                </div>
+                <footer>
+                    uptime
+                </footer>
             </div>
         </section>
         <footer>
-            <p>This website was created by Michael Holler, inspired by a Python script written by Jeff Petrick, and styled by Deepayan Bose.</p>
+            <hr />
+            <p class="footnote">* Uptime is calculated inside a 30-day window (any downtime occurring more than 30 days ago is not counted) and is updated every minute. Data are gathered at a rate of one sample per minute.</p>
+            <p class="about-us">Created by <a href="https://github.com/apotheos">Michael Holler</a>, inspired by a Python script written by Jeff Petrick, and styled by Deepayan Bose. The code for this website can be found on <a href="http://github.com/apotheos/isnccmailup">Github</a> and is licensed under GNU GPL.</p>
         </footer>
     </body>
 </html>

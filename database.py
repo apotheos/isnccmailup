@@ -27,6 +27,13 @@ class Database(object):
     def get_main_site_uptime(self):
         return self.__get_uptime(Database.__TABLE_MAIN_SITE_STATUS)
 
+    def get_last_sample(self):
+        query = "SELECT status, time FROM {0} ORDER BY time DESC LIMIT 1"
+        c = self.db.cursor()
+        c.execute(query.format(Database.__TABLE_MAIL_STATUS))
+
+        return c.fetchone()
+
     def __insert_status(self, status, status_table):
         query = 'INSERT INTO {0}(status) VALUES (%s)'.format(status_table)
         c = self.db.cursor()

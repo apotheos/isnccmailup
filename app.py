@@ -8,16 +8,23 @@ app = Flask(__name__)
 import uptime
 from database import Database
 
+config = json.load(open('config.json', 'r+'))
+
 
 @app.route("/")
 def index():
     db = Database()
+    mail_up, sample_time = db.get_last_sample()
+    sample_time = sample_time.strftime('%B %d, %Y at %I:%M %p')
     return render_template('index.html',
-                           is_mail_up=uptime.is_mail_up(),
+                           # mail_up=uptime.is_mail_up(),
+                           mail_up=mail_up,
+                           sample_time=sample_time,
+                           webmail_url=config['email']['webmail_url'],
                            mail_uptime=db.get_mail_uptime(),
-                           is_main_site_up=uptime.is_main_site_up(),
-                           main_site_uptime=db.get_main_site_uptime())
+                           site_url=config['site']['url'],
+                           site_uptime=db.get_main_site_uptime())
 
 if __name__ == "__main__":
-    config = json.load(open('config.json', 'r+'))['application']
-    app.run(port=config['port'], debug=config['debug'])
+    app_config = config['application']
+    app.run(port=app_config['port'], debug=app_config['debug'])

@@ -2,7 +2,8 @@
     "application": {
         "port": 5000,
         "debug": false,
-        "levels": [99.9, 97.5]
+        "levels": [99.9, 97.5],
+        "timezone": "America/Chicago"
     },
     "database": {
         "host": "localhost",

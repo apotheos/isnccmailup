@@ -7,7 +7,7 @@
         <header>
             <h1>Is NCC Mail Up?</h1>
         </header>
-        <section id="mail-status">
+        <section id="mail-status {{ 'up' if mail_up else 'down' }}">
             {% if mail_up %}
                 <em>Yes.</em> We're able to connect to NCC Mail just fine.
             {% else %}
